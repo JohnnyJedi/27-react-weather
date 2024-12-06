@@ -1,17 +1,16 @@
 import {legacy_createStore as createStore} from "redux";
-import {weatherReducer} from "../reducers/weatherReducer.js";
+import {rootReducer} from "../reducers/rootReducer.js";
 
-const initialState = {
+// const initialState = {
+//     message: 'Enter city name',
+//     weather:{
+//         country: "",
+//         city: "",
+//         temp: "",
+//         pressure: "",
+//         sunset: "",
+//     }
+// }
 
-    message: 'Enter city name',
-    weather:{
-        country: "",
-        city: "",
-        temp: "",
-        pressure: "",
-        sunset: "",
-    }
-}
 
-
-export const store = createStore(weatherReducer, initialState);
+export const store = createStore(rootReducer);

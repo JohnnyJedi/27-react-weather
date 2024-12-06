@@ -2,7 +2,7 @@ import {useSelector} from "react-redux";
 
 
 const Weather = () => {
-    const {message} = useSelector(state => state);
+    const {message} = useSelector(state => state.message);
     const{country,city,temp,pressure,sunset} = useSelector(state => state.weather);
     const formatSunset = new Date(sunset * 1000);
     const sunsetTime = formatSunset.toLocaleString();
