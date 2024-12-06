@@ -1,8 +1,15 @@
+import {useSelector} from "react-redux";
 
 
-const Weather = ({weather, message}) => {
-    const formatSunset = new Date(weather.sunset * 1000);
+const Weather = () => {
+    const {message} = useSelector(state => state);
+    const{country,city,temp,pressure,sunset} = useSelector(state => state.weather);
+    const formatSunset = new Date(sunset * 1000);
     const sunsetTime = formatSunset.toLocaleString();
+
+
+
+
     if (message) {
 
         return (
@@ -12,9 +19,9 @@ const Weather = ({weather, message}) => {
     } else {
         return (
             <div className={'infoWeath'}>
-                <p>Location: {weather.country}, {weather.city}</p>
-                <p>Temp: {weather.temp} </p>
-                <p>Pressure: {weather.pressure}</p>
+                <p>Location: {country}, {city}</p>
+                <p>Temp: {temp} </p>
+                <p>Pressure: {pressure}</p>
                 <p>Sunset: {sunsetTime}</p>
             </div>
         );
