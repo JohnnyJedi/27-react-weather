@@ -1,21 +1,27 @@
-import {useState} from "react";
+
+    import {useDispatch, useSelector} from "react-redux";
+    import {printCity} from "../actions/dataActions.js";
 
 
-const Form = ({getWeather}) => {
-    const [city,setCity] = useState('');
-    const getCity = (e) => {
-        e.preventDefault();
-        getWeather(city);
-        setCity('');
+    const Form = ({getWeather}) => {
+        // const [city,setCity] = useState('');
 
-    }
+        const {city} = useSelector((state) => state.input);
+        const dispatch = useDispatch();
 
-    return (
-        <form onSubmit={getCity}>
-            <input onChange={e => setCity(e.target.value)}  type="text" value={city}/>
-            <button  type={"submit"}>Get Weather</button>
-        </form>
-    );
-};
+        const getCity = (e) => {
+            e.preventDefault();
+            getWeather(city);
+            dispatch(printCity(''));
 
-export default Form;
+        }
+
+        return (
+            <form onSubmit={getCity}>
+                <input onChange={e => dispatch(printCity(e.target.value))}  type="text" value={city}/>
+                <button  type={"submit"}>Get Weather</button>
+            </form>
+        );
+    };
+
+    export default Form;
