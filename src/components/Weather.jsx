@@ -9,7 +9,6 @@ const Weather = () => {
 
 
 
-
     if (message) {
 
         return (
