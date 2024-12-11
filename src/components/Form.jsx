@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {fetchWeather} from "../actions/dataActions.js";
+import {fetchWeather} from "../features/api.js";
 import {useDispatch} from "react-redux";
 
 const Form = () => {
@@ -11,7 +11,6 @@ const Form = () => {
         dispatch(fetchWeather(city));
         setCity('');
     }
-
 
 
     return (
